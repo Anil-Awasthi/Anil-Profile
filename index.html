@@ -162,6 +162,131 @@
       .hero .lead { line-height: 1.8; }
       .hero .actions { margin-top: 26px; }
     }
+    /* Consistent typography and spacing throughout every content section */
+    .section > .wrap > .kicker {
+      display: block;
+      margin: 0 0 12px;
+      font-size: .82rem;
+      line-height: 1.5;
+      letter-spacing: .14em;
+    }
+    .section > .wrap > h2 {
+      max-width: 850px;
+      margin: 0 0 22px;
+      font-size: clamp(2.15rem, 4.3vw, 3.2rem);
+      line-height: 1.14;
+      letter-spacing: -.04em;
+    }
+    .section > .wrap > .section-intro {
+      max-width: 760px;
+      margin: 0 0 38px;
+      font-size: 1.06rem;
+      line-height: 1.9;
+    }
+    .grid, .certs, .education, .timeline {
+      gap: 20px;
+    }
+    .grid .card, .education .card {
+      min-width: 0;
+      padding: 26px;
+    }
+    .card .num {
+      display: block;
+      margin-bottom: 10px;
+      line-height: 1.5;
+    }
+    .card h3 {
+      margin: 0 0 14px !important;
+      font-size: 1.16rem;
+      line-height: 1.45;
+    }
+    .card p {
+      font-size: .98rem;
+      line-height: 1.85;
+    }
+    .card .tags {
+      margin-top: 20px;
+    }
+    .job {
+      padding: 28px;
+      gap: 32px;
+    }
+    .job .date {
+      display: block;
+      line-height: 1.6;
+      margin-bottom: 8px;
+    }
+    .job .company {
+      margin-top: 0;
+      line-height: 1.7;
+    }
+    .job h3 {
+      font-size: 1.22rem;
+      line-height: 1.45;
+      margin: 0 0 16px !important;
+    }
+    .job ul {
+      margin: 0 !important;
+      padding-left: 22px;
+      font-size: .98rem;
+      line-height: 1.85;
+    }
+    .job li + li {
+      margin-top: 10px;
+    }
+    .certs {
+      gap: 16px;
+    }
+    .cert {
+      padding: 20px;
+      gap: 16px;
+    }
+    .cert strong {
+      font-size: .98rem;
+      line-height: 1.55;
+    }
+    .cert small {
+      margin-top: 7px;
+      font-size: .86rem;
+      line-height: 1.6;
+    }
+    .education {
+      margin-top: 30px !important;
+    }
+    .contact {
+      padding: 36px;
+      gap: 32px;
+    }
+    .contact .kicker {
+      display: block;
+      margin-bottom: 12px;
+      line-height: 1.5;
+    }
+    .contact h2 {
+      margin: 0 0 18px;
+      font-size: clamp(2rem, 3.8vw, 2.8rem);
+      line-height: 1.15;
+    }
+    .contact p {
+      max-width: 680px;
+      line-height: 1.85;
+    }
+    @media(max-width:800px) {
+      .section > .wrap > .section-intro { margin-bottom: 30px; }
+      .grid, .certs, .education, .timeline { gap: 16px; }
+      .job { padding: 24px; }
+    }
+    @media(max-width:560px) {
+      .section { padding: 54px 0; }
+      .section > .wrap > .kicker { margin-bottom: 10px; }
+      .section > .wrap > h2 { margin-bottom: 18px; font-size: clamp(2rem, 8.5vw, 2.55rem); }
+      .section > .wrap > .section-intro { font-size: 1rem; line-height: 1.8; margin-bottom: 26px; }
+      .grid .card, .education .card { padding: 22px; }
+      .job { padding: 20px; gap: 16px; }
+      .job h3 { font-size: 1.12rem; }
+      .cert { padding: 16px; gap: 12px; }
+      .contact { padding: 24px; gap: 20px; }
+    }
     @media(max-width:800px){.hero{grid-template-columns:1fr;padding-top:64px;gap:32px}.grid{grid-template-columns:repeat(2,1fr)}.job{grid-template-columns:1fr;gap:8px}nav{gap:12px}nav a{font-size:.82rem}}
     @media(max-width:560px){.wrap{width:min(var(--max),calc(100% - 28px))}.nav{padding:14px 0;align-items:flex-start;flex-direction:column;gap:8px}nav{gap:14px}.hero{padding:54px 0}.grid,.certs,.education{grid-template-columns:1fr}.section{padding:58px 0}.contact{align-items:flex-start;flex-direction:column}.hero-card{padding:18px}}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;scroll-behavior:auto!important}}
