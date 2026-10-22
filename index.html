@@ -6,6 +6,99 @@
   <meta name="description" content="Anil Awasthi — Observability and Monitoring Engineer specialising in Splunk Observability, cloud infrastructure, DevOps, automation and incident management.">
   <meta name="theme-color" content="#0b1020">
   <title>Anil Awasthi | Observability & Monitoring Engineer</title>
+  /*
+
+IMPORTANT: Replace the <version> placeholder in the src URL with a
+version from https://github.com/signalfx/splunk-otel-js-web/releases
+
+*/
+<script src="https://cdn.signalfx.com/o11y-gdi-rum/<version>/splunk-otel-web.js" crossorigin="anonymous"></script>
+<script>
+    SplunkRum.init({
+        realm: "au0",
+        rumAccessToken: "AEI9FlTqIXVzKlqKx3-mCw",
+        applicationName: "Portfolio_website",
+        deploymentEnvironment: "prod"
+    });
+</script>
+
+  /*
+
+IMPORTANT: Replace the <version> placeholder in the src URL with a
+version from https://github.com/signalfx/splunk-otel-js-web/releases
+
+*/
+
+<script src="https://cdn.signalfx.com/o11y-gdi-rum/v3.0.0/splunk-otel-web-session-recorder.js" crossorigin="anonymous"></script>
+<script>
+SplunkSessionRecorder.init({
+  app: "Portfolio_website",
+  realm: "au0",
+  rumAccessToken: "AEI9FlTqIXVzKlqKx3-mCw"
+});
+</script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Anil Awasthi | Infrastructure Engineer</title>
+
+  <meta
+    name="description"
+    content="Anil Awasthi — Senior Infrastructure Engineer specialising in Cloud Architecture, AWS, Azure, DevOps, Cloud Migration, IT Infrastructure and IT Service Management."
+  />
+
+  <!-- =========================================================
+       TAILWIND CSS
+  ========================================================== -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- =========================================================
+       GOOGLE FONTS
+  ========================================================== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- =========================================================
+       LUCIDE ICONS
+  ========================================================== -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- =========================================================
+       TAILWIND CONFIG
+  ========================================================== -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ["Inter", "sans-serif"],
+            mono: ["JetBrains Mono", "monospace"],
+          },
+
+          colors: {
+            accent: "#22D3EE",
+            "accent-dark": "#0891B2",
+            surface: "#111827",
+            background: "#080B12",
+          },
+
+          boxShadow: {
+            glow: "0 0 60px rgba(34, 211, 238, 0.10)",
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- =========================================================
+       CUSTOM CSS
+  ========================================================== -->
   <style>
     :root{--bg:#0b1020;--panel:#111a2d;--panel2:#0e1728;--text:#edf3ff;--muted:#a7b4ca;--line:#25334b;--accent:#75e0c1;--accent2:#8cb8ff;--max:1120px}
     *{box-sizing:border-box}
