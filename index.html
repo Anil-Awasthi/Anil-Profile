@@ -118,6 +118,20 @@
     .contact{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:30px;border:1px solid #31544e;background:linear-gradient(120deg,#102a2b,#111a2d);border-radius:18px}
     .contact p{color:var(--muted);margin-bottom:0}.contact .btn{white-space:nowrap}
     footer{padding:28px 0;color:var(--muted);font-size:.84rem}.foot{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+    /* Clear, consistent spacing between headings and their supporting content */
+    h1, h2, h3 { display:block; }
+    h1 { margin-block: 22px 24px; }
+    h2 { margin-block: 12px 22px; }
+    h3 { margin-block: 14px 11px !important; }
+    p { line-height: 1.8; }
+    .lead { margin: 0; line-height: 1.85; }
+    .section-intro { margin-top: 0; margin-bottom: 34px; line-height: 1.8; }
+    .card h3 { margin-top: 14px !important; margin-bottom: 10px !important; }
+    .card p { margin-top: 0; line-height: 1.8; }
+    .job h3 { margin-top: 0 !important; margin-bottom: 12px !important; }
+    .job ul { margin-top: 14px !important; line-height: 1.8; }
+    .contact h2 { margin-bottom: 18px; }
+    .contact p { line-height: 1.8; }
     @media(max-width:800px){.hero{grid-template-columns:1fr;padding-top:64px;gap:32px}.grid{grid-template-columns:repeat(2,1fr)}.job{grid-template-columns:1fr;gap:8px}nav{gap:12px}nav a{font-size:.82rem}}
     @media(max-width:560px){.wrap{width:min(var(--max),calc(100% - 28px))}.nav{padding:14px 0;align-items:flex-start;flex-direction:column;gap:8px}nav{gap:14px}.hero{padding:54px 0}.grid,.certs,.education{grid-template-columns:1fr}.section{padding:58px 0}.contact{align-items:flex-start;flex-direction:column}.hero-card{padding:18px}}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;scroll-behavior:auto!important}}
