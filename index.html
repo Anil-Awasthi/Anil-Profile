@@ -1,6 +1,11 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Anil Awasthi — Observability and Monitoring Engineer specialising in Splunk Observability, cloud infrastructure, DevOps, automation and incident management.">
+  <meta name="theme-color" content="#0b1020">
+  <title>Anil Awasthi | Observability & Monitoring Engineer</title>
   /*
 
 IMPORTANT: Replace the <version> placeholder in the src URL with a
@@ -95,1731 +100,184 @@ SplunkSessionRecorder.init({
        CUSTOM CSS
   ========================================================== -->
   <style>
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      background: #080b12;
-    }
-
-    ::selection {
-      background: rgba(34, 211, 238, 0.3);
-      color: white;
-    }
-
-    /* Subtle technical grid */
-    .tech-grid {
-      background-image:
-        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
-      background-size: 40px 40px;
-    }
-
-    /* Fade-up reveal */
-    .reveal {
-      opacity: 0;
-      transform: translateY(22px);
-      transition:
-        opacity 0.75s ease,
-        transform 0.75s ease;
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Gradient border */
-    .gradient-border {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .gradient-border::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: inherit;
-      padding: 1px;
-      background: linear-gradient(
-        135deg,
-        rgba(34, 211, 238, 0.35),
-        transparent 40%,
-        rgba(59, 130, 246, 0.2)
-      );
-      -webkit-mask:
-        linear-gradient(#fff 0 0) content-box,
-        linear-gradient(#fff 0 0);
-      -webkit-mask-composite: xor;
-      mask-composite: exclude;
-      pointer-events: none;
-    }
-
-    /* Hero glow */
-    .hero-glow {
-      animation: pulseGlow 5s ease-in-out infinite;
-    }
-
-    @keyframes pulseGlow {
-      0%,
-      100% {
-        opacity: 0.35;
-        transform: scale(1);
-      }
-
-      50% {
-        opacity: 0.55;
-        transform: scale(1.08);
-      }
-    }
-
-    /* Hover cards */
-    .hover-card {
-      transition:
-        transform 0.3s ease,
-        border-color 0.3s ease,
-        background 0.3s ease,
-        box-shadow 0.3s ease;
-    }
-
-    .hover-card:hover {
-      transform: translateY(-5px);
-      border-color: rgba(34, 211, 238, 0.3);
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
-    }
-
-    /* Timeline */
-    .timeline-line {
-      background: linear-gradient(
-        to bottom,
-        rgba(34, 211, 238, 0.7),
-        rgba(34, 211, 238, 0.05)
-      );
-    }
-
-    /* Mobile menu */
-    .mobile-menu {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease;
-    }
-
-    .mobile-menu.open {
-      max-height: 500px;
-    }
+    :root{--bg:#0b1020;--panel:#111a2d;--panel2:#0e1728;--text:#edf3ff;--muted:#a7b4ca;--line:#25334b;--accent:#75e0c1;--accent2:#8cb8ff;--max:1120px}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:88px}
+    body{margin:0;background:radial-gradient(ellipse at 80% 0%,#172b46 0,transparent 34%),var(--bg);color:var(--text);font:16px/1.65 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+    a{color:inherit;text-decoration:none}
+    a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+    .wrap{width:min(var(--max),calc(100% - 40px));margin:auto}
+    header{position:sticky;top:0;z-index:10;background:rgba(11,16,32,.88);backdrop-filter:blur(16px);border-bottom:1px solid rgba(167,180,202,.14)}
+    .nav{min-height:74px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{font-weight:800;letter-spacing:-.04em;font-size:1.08rem}.brand span{color:var(--accent)}
+    nav{display:flex;align-items:center;gap:22px;flex-wrap:wrap}nav a{font-size:.9rem;color:var(--muted)}nav a:hover{color:var(--text)}
+    .hero{padding:92px 0 76px;display:grid;grid-template-columns:1.3fr .7fr;gap:58px;align-items:center}
+    .eyebrow{display:inline-flex;align-items:center;gap:10px;color:var(--accent);font-size:.78rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase}
+    .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 16px #75e0c177}
+    h1{font-size:clamp(2.7rem,6vw,5.15rem);line-height:1.02;letter-spacing:-.065em;margin:20px 0}
+    h1 em{font-style:normal;color:var(--accent)}
+    .lead{max-width:690px;color:#c0cce0;font-size:1.12rem}
+    .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border:1px solid var(--line);border-radius:10px;font-weight:750;font-size:.94rem}
+    .btn.primary{background:var(--accent);color:#07131a;border-color:var(--accent)}.btn:hover{transform:translateY(-1px)}
+    .hero-card{border:1px solid #2b3c55;border-radius:22px;background:linear-gradient(155deg,rgba(25,42,66,.96),rgba(13,22,39,.96));padding:24px;box-shadow:0 28px 90px #0003}
+    .terminal-top{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:14px;color:var(--muted);font-size:.78rem}
+    .lights{display:flex;gap:6px}.lights i{width:7px;height:7px;border-radius:50%;background:#62738c}
+    .status{margin:20px 0 12px;color:var(--accent);font-size:.8rem;font-weight:800;letter-spacing:.1em}
+    .metric{display:flex;justify-content:space-between;gap:12px;padding:13px 0;border-bottom:1px solid #26344a}.metric:last-child{border:0}
+    .metric span{color:var(--muted)}.metric strong{font-size:.93rem;text-align:right}
+    .section{padding:76px 0;border-top:1px solid rgba(167,180,202,.13)}
+    .kicker{color:var(--accent);font-size:.76rem;letter-spacing:.15em;text-transform:uppercase;font-weight:800}
+    h2{font-size:clamp(2rem,4vw,3rem);line-height:1.1;letter-spacing:-.045em;margin:10px 0 16px}
+    .section-intro{max-width:740px;color:var(--muted);margin:0 0 32px}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .card{background:linear-gradient(145deg,rgba(17,26,45,.95),rgba(14,23,40,.95));border:1px solid var(--line);border-radius:16px;padding:23px}
+    .card .num{font-size:.75rem;color:var(--accent);letter-spacing:.1em;font-weight:800}
+    h3{font-size:1.08rem;line-height:1.35;margin:12px 0 9px}
+    .card p{color:var(--muted);font-size:.94rem;margin:0}
+    .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:17px}
+    .tag{font-size:.77rem;color:#c6d6ee;border:1px solid #2c3b53;padding:5px 9px;border-radius:999px}
+    .timeline{display:grid;gap:16px}
+    .job{display:grid;grid-template-columns:190px 1fr;gap:28px;padding:24px;border:1px solid var(--line);border-radius:16px;background:rgba(17,26,45,.7)}
+    .date{color:var(--accent);font-size:.82rem;font-weight:800}
+    .company{color:var(--muted);font-size:.9rem;margin-top:5px}
+    .job ul{padding-left:20px;color:var(--muted);margin:12px 0 0}.job li+li{margin-top:7px}
+    .certs{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    .cert{display:flex;gap:14px;align-items:flex-start;padding:16px;border:1px solid var(--line);border-radius:12px;background:rgba(17,26,45,.65)}
+    .cert-mark{flex:0 0 42px;height:42px;border-radius:11px;display:grid;place-items:center;background:#1c3440;color:var(--accent);font-weight:850;font-size:.75rem}
+    .cert strong{display:block;line-height:1.35}.cert small{display:block;color:var(--muted);margin-top:4px}
+    .education{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .contact{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:30px;border:1px solid #31544e;background:linear-gradient(120deg,#102a2b,#111a2d);border-radius:18px}
+    .contact p{color:var(--muted);margin-bottom:0}.contact .btn{white-space:nowrap}
+    footer{padding:28px 0;color:var(--muted);font-size:.84rem}.foot{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+    @media(max-width:800px){.hero{grid-template-columns:1fr;padding-top:64px;gap:32px}.grid{grid-template-columns:repeat(2,1fr)}.job{grid-template-columns:1fr;gap:8px}nav{gap:12px}nav a{font-size:.82rem}}
+    @media(max-width:560px){.wrap{width:min(var(--max),calc(100% - 28px))}.nav{padding:14px 0;align-items:flex-start;flex-direction:column;gap:8px}nav{gap:14px}.hero{padding:54px 0}.grid,.certs,.education{grid-template-columns:1fr}.section{padding:58px 0}.contact{align-items:flex-start;flex-direction:column}.hero-card{padding:18px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;scroll-behavior:auto!important}}
   </style>
 </head>
-
-<body class="font-sans text-slate-100 antialiased">
-
-  <!-- =========================================================
-       NAVIGATION
-  ========================================================== -->
-  <header
-    class="fixed inset-x-0 top-0 z-50 border-b border-white/[0.06] bg-[#080B12]/85 backdrop-blur-xl"
-  >
-    <nav
-      class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8"
-      aria-label="Main navigation"
-    >
-
-      <!-- Logo -->
-      <a
-        href="#home"
-        class="group flex items-center gap-3"
-        aria-label="Anil Awasthi home"
-      >
-        <span
-          class="flex h-9 w-9 items-center justify-center rounded-lg border border-cyan-400/20 bg-cyan-400/5 font-mono text-xs font-semibold text-cyan-300"
-        >
-          AA
-        </span>
-
-        <div>
-          <div class="text-sm font-semibold tracking-tight text-white">
-            Anil Awasthi
-          </div>
-
-          <div class="hidden text-[10px] font-mono uppercase tracking-[0.18em] text-slate-500 sm:block">
-            Infrastructure Engineer
-          </div>
-        </div>
-      </a>
-
-      <!-- Desktop navigation -->
-      <div class="hidden items-center gap-8 md:flex">
-        <a href="#about" class="text-sm text-slate-400 transition hover:text-white">
-          About
-        </a>
-
-        <a href="#expertise" class="text-sm text-slate-400 transition hover:text-white">
-          Expertise
-        </a>
-
-        <a href="#experience" class="text-sm text-slate-400 transition hover:text-white">
-          Experience
-        </a>
-
-        <a href="#certifications" class="text-sm text-slate-400 transition hover:text-white">
-          Certifications
-        </a>
-
-        <a
-          href="#contact"
-          class="rounded-lg border border-cyan-400/30 bg-cyan-400/5 px-4 py-2 text-sm font-medium text-cyan-300 transition hover:bg-cyan-400/10"
-        >
-          Contact
-        </a>
-      </div>
-
-      <!-- Mobile menu button -->
-      <button
-        id="menuButton"
-        class="rounded-lg p-2 text-slate-300 transition hover:bg-white/5 hover:text-white md:hidden"
-        aria-label="Toggle navigation"
-        aria-expanded="false"
-      >
-        <i data-lucide="menu" class="h-5 w-5"></i>
-      </button>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#home" aria-label="Anil Awasthi home">ANIL<span>.</span> AWASTHI</a>
+    <nav aria-label="Main navigation">
+      <a href="#about">About</a><a href="#expertise">Expertise</a><a href="#experience">Experience</a><a href="#certifications">Certifications</a><a href="#contact">Contact</a>
     </nav>
-
-    <!-- Mobile menu -->
-    <div
-      id="mobileMenu"
-      class="mobile-menu border-t border-white/[0.06] bg-[#080B12]/95 md:hidden"
-    >
-      <div class="space-y-1 px-5 py-4">
-
-        <a
-          href="#about"
-          class="mobile-link block rounded-lg px-4 py-3 text-slate-300 hover:bg-white/5"
-        >
-          About
-        </a>
-
-        <a
-          href="#expertise"
-          class="mobile-link block rounded-lg px-4 py-3 text-slate-300 hover:bg-white/5"
-        >
-          Expertise
-        </a>
-
-        <a
-          href="#experience"
-          class="mobile-link block rounded-lg px-4 py-3 text-slate-300 hover:bg-white/5"
-        >
-          Experience
-        </a>
-
-        <a
-          href="#certifications"
-          class="mobile-link block rounded-lg px-4 py-3 text-slate-300 hover:bg-white/5"
-        >
-          Certifications
-        </a>
-
-        <a
-          href="#contact"
-          class="mobile-link block rounded-lg px-4 py-3 text-cyan-300 hover:bg-cyan-400/5"
-        >
-          Contact
-        </a>
-
+  </div>
+</header>
+<main>
+  <section class="wrap hero" id="home">
+    <div>
+      <div class="eyebrow"><span class="dot"></span> Observability &amp; Monitoring Engineer</div>
+      <h1>Making complex systems <em>visible, reliable,</em> and ready to scale.</h1>
+      <p class="lead">I'm Anil Awasthi, an IT engineer with 8+ years of experience across observability, infrastructure operations, cloud transformation and DevOps. I help teams understand system health through monitoring, dashboards, alerting and operational improvement.</p>
+      <div class="actions">
+        <a class="btn primary" href="#experience">Explore my experience ↘</a>
+        <a class="btn" href="https://www.linkedin.com/in/anil-awasthi-58966160/" target="_blank" rel="noopener noreferrer">Connect on LinkedIn ↗</a>
       </div>
     </div>
-  </header>
-
-
-  <main id="home">
-
-    <!-- =========================================================
-         HERO
-    ========================================================== -->
-    <section
-      class="tech-grid relative flex min-h-screen items-center overflow-hidden px-5 pb-20 pt-32 lg:px-8"
-    >
-
-      <!-- Decorative glow -->
-      <div
-        class="hero-glow pointer-events-none absolute right-[-12rem] top-24 h-[38rem] w-[38rem] rounded-full bg-cyan-500/10 blur-3xl"
-        aria-hidden="true"
-      ></div>
-
-      <div
-        class="pointer-events-none absolute bottom-10 left-[-10rem] h-[25rem] w-[25rem] rounded-full bg-blue-600/5 blur-3xl"
-        aria-hidden="true"
-      ></div>
-
-      <div class="relative mx-auto w-full max-w-7xl">
-
-        <div class="grid items-center gap-16 lg:grid-cols-[1.15fr_0.85fr]">
-
-          <!-- Hero content -->
-          <div class="reveal">
-
-            <!-- Status -->
-            <div
-              class="mb-7 inline-flex items-center gap-2 rounded-full border border-cyan-400/20 bg-cyan-400/5 px-3.5 py-2"
-            >
-              <span class="relative flex h-2 w-2">
-                <span
-                  class="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan-400 opacity-60"
-                ></span>
-
-                <span
-                  class="relative inline-flex h-2 w-2 rounded-full bg-cyan-400"
-                ></span>
-              </span>
-
-              <span class="font-mono text-xs text-cyan-300">
-                Senior IT Infrastructure Engineer
-              </span>
-            </div>
-
-
-            <h1
-              class="max-w-5xl text-5xl font-bold leading-[1.05] tracking-[-0.04em] sm:text-6xl lg:text-7xl xl:text-[5.25rem]"
-            >
-              Engineering
-              <span class="text-cyan-400">reliable</span>
-              infrastructure for the cloud era.
-            </h1>
-
-
-            <p
-              class="mt-8 max-w-3xl text-base leading-8 text-slate-400 sm:text-lg"
-            >
-              Highly motivated and results-oriented Senior IT Engineer with
-              <strong class="font-semibold text-slate-200">
-                8 years of experience
-              </strong>
-              designing, implementing and maintaining complex IT infrastructure
-              across on-premises and cloud environments.
-            </p>
-
-            <p
-              class="mt-4 max-w-3xl text-sm leading-7 text-slate-500 sm:text-base"
-            >
-              I specialise in cloud architecture, AWS, Azure, cloud migrations,
-              DevOps, automation, infrastructure operations and secure,
-              scalable technology solutions.
-            </p>
-
-
-            <!-- CTAs -->
-            <div class="mt-10 flex flex-col gap-3 sm:flex-row">
-
-              <a
-                href="#expertise"
-                class="inline-flex items-center justify-center gap-2 rounded-lg bg-cyan-400 px-6 py-3.5 text-sm font-semibold text-slate-950 transition hover:-translate-y-0.5 hover:bg-cyan-300"
-              >
-                Explore Expertise
-                <i data-lucide="arrow-down-right" class="h-4 w-4"></i>
-              </a>
-
-              <a
-                href="#contact"
-                class="inline-flex items-center justify-center gap-2 rounded-lg border border-white/10 px-6 py-3.5 text-sm font-semibold text-slate-200 transition hover:-translate-y-0.5 hover:border-cyan-400/30 hover:bg-cyan-400/5"
-              >
-                Let's Connect
-                <i data-lucide="arrow-up-right" class="h-4 w-4"></i>
-              </a>
-
-            </div>
-
-
-            <!-- Quick metrics -->
-            <div class="mt-12 grid max-w-2xl grid-cols-2 gap-4 sm:grid-cols-4">
-
-              <div class="border-l border-white/10 pl-4">
-                <div class="text-2xl font-bold text-white">8+</div>
-                <div class="mt-1 text-xs text-slate-500">Years Experience</div>
-              </div>
-
-              <div class="border-l border-white/10 pl-4">
-                <div class="text-2xl font-bold text-white">AWS</div>
-                <div class="mt-1 text-xs text-slate-500">Cloud Certified</div>
-              </div>
-
-              <div class="border-l border-white/10 pl-4">
-                <div class="text-2xl font-bold text-white">Azure</div>
-                <div class="mt-1 text-xs text-slate-500">Cloud Platform</div>
-              </div>
-
-              <div class="border-l border-white/10 pl-4">
-                <div class="text-2xl font-bold text-white">ITIL</div>
-                <div class="mt-1 text-xs text-slate-500">Service Management</div>
-              </div>
-
-            </div>
-          </div>
-
-
-          <!-- Infrastructure visual -->
-          <div class="reveal hidden lg:block">
-
-            <div class="gradient-border rounded-2xl bg-slate-900/60 p-1 shadow-glow">
-
-              <div class="rounded-[0.9rem] bg-[#0B1018] p-6">
-
-                <!-- Terminal heading -->
-                <div class="mb-6 flex items-center justify-between">
-
-                  <div class="flex items-center gap-2">
-                    <span class="h-3 w-3 rounded-full bg-red-400/70"></span>
-                    <span class="h-3 w-3 rounded-full bg-amber-400/70"></span>
-                    <span class="h-3 w-3 rounded-full bg-emerald-400/70"></span>
-                  </div>
-
-                  <span class="font-mono text-[11px] text-slate-600">
-                    infrastructure.yaml
-                  </span>
-
-                </div>
-
-
-                <!-- Architecture diagram -->
-                <div class="space-y-4 font-mono text-xs">
-
-                  <div class="rounded-lg border border-cyan-400/10 bg-cyan-400/[0.03] p-4">
-                    <div class="mb-3 flex items-center gap-2 text-cyan-300">
-                      <i data-lucide="cloud" class="h-4 w-4"></i>
-                      cloud_platform
-                    </div>
-
-                    <div class="grid grid-cols-2 gap-2">
-
-                      <div class="rounded border border-white/5 bg-white/[0.02] p-3">
-                        <span class="text-slate-500">aws</span>
-                        <div class="mt-1 text-slate-300">
-                          architecture
-                        </div>
-                      </div>
-
-                      <div class="rounded border border-white/5 bg-white/[0.02] p-3">
-                        <span class="text-slate-500">azure</span>
-                        <div class="mt-1 text-slate-300">
-                          services
-                        </div>
-                      </div>
-
-                    </div>
-                  </div>
-
-
-                  <div class="mx-auto h-5 w-px bg-cyan-400/20"></div>
-
-
-                  <div class="rounded-lg border border-white/5 bg-white/[0.02] p-4">
-                    <div class="mb-3 flex items-center gap-2 text-slate-300">
-                      <i data-lucide="git-branch" class="h-4 w-4 text-cyan-400"></i>
-                      devops_pipeline
-                    </div>
-
-                    <div class="grid grid-cols-3 gap-2 text-center">
-
-                      <div class="rounded border border-white/5 p-2 text-slate-500">
-                        Git
-                      </div>
-
-                      <div class="rounded border border-white/5 p-2 text-slate-500">
-                        CI/CD
-                      </div>
-
-                      <div class="rounded border border-white/5 p-2 text-slate-500">
-                        IaC
-                      </div>
-
-                    </div>
-                  </div>
-
-
-                  <div class="mx-auto h-5 w-px bg-cyan-400/20"></div>
-
-
-                  <div class="grid grid-cols-3 gap-2">
-
-                    <div class="rounded-lg border border-white/5 bg-white/[0.02] p-3 text-center">
-                      <i data-lucide="shield-check" class="mx-auto h-4 w-4 text-cyan-400"></i>
-                      <div class="mt-2 text-[10px] text-slate-500">
-                        SECURITY
-                      </div>
-                    </div>
-
-                    <div class="rounded-lg border border-white/5 bg-white/[0.02] p-3 text-center">
-                      <i data-lucide="activity" class="mx-auto h-4 w-4 text-cyan-400"></i>
-                      <div class="mt-2 text-[10px] text-slate-500">
-                        MONITORING
-                      </div>
-                    </div>
-
-                    <div class="rounded-lg border border-white/5 bg-white/[0.02] p-3 text-center">
-                      <i data-lucide="server" class="mx-auto h-4 w-4 text-cyan-400"></i>
-                      <div class="mt-2 text-[10px] text-slate-500">
-                        ON-PREM
-                      </div>
-                    </div>
-
-                  </div>
-
-                </div>
-
-
-                <!-- Terminal output -->
-                <div class="mt-7 border-t border-white/5 pt-5 font-mono text-xs">
-
-                  <div class="text-slate-600">
-                    $ infrastructure status
-                  </div>
-
-                  <div class="mt-2 text-emerald-400">
-                    ✓ systems operational
-                  </div>
-
-                  <div class="text-slate-500">
-                    ✓ cloud connectivity established
-                  </div>
-
-                  <div class="text-slate-500">
-                    ✓ security controls active
-                  </div>
-
-                </div>
-
-              </div>
-            </div>
-
-          </div>
-
-        </div>
+    <aside class="hero-card" aria-label="Professional focus summary">
+      <div class="terminal-top"><span>anil / engineering-focus</span><span class="lights"><i></i><i></i><i></i></span></div>
+      <div class="status">● CORE CAPABILITIES</div>
+      <div class="metric"><span>Observability</span><strong>Splunk O11y</strong></div>
+      <div class="metric"><span>Monitoring</span><strong>APM · RUM · Synthetic</strong></div>
+      <div class="metric"><span>Operations</span><strong>Incidents · RCA</strong></div>
+      <div class="metric"><span>Delivery</span><strong>Automation · CI/CD</strong></div>
+      <div class="metric"><span>Infrastructure</span><strong>Cloud · Data Centre</strong></div>
+    </aside>
+  </section>
+
+  <section class="section" id="about">
+    <div class="wrap">
+      <div class="kicker">01 / Profile</div>
+      <h2>Observability grounded in real-world operations.</h2>
+      <p class="section-intro">My background combines hands-on monitoring and incident management with infrastructure transformation. I work with cross-functional teams to improve visibility into applications and infrastructure, identify performance bottlenecks, and support reliable day-to-day operations.</p>
+      <div class="grid">
+        <article class="card"><div class="num">01</div><h3>Monitoring &amp; incident response</h3><p>Configuring and maintaining monitoring systems, dashboards and alerts to support system availability, performance and reliability.</p></article>
+        <article class="card"><div class="num">02</div><h3>Performance &amp; capacity</h3><p>Evaluating performance, identifying bottlenecks and collaborating on capacity planning for cloud infrastructure and applications.</p></article>
+        <article class="card"><div class="num">03</div><h3>Automation &amp; transformation</h3><p>Supporting operational automation, cloud migration, Infrastructure as Code practices and CI/CD-enabled delivery.</p></article>
       </div>
-    </section>
-
-
-    <!-- =========================================================
-         ABOUT
-    ========================================================== -->
-    <section id="about" class="border-t border-white/[0.06] px-5 py-24 lg:px-8">
-
-      <div class="mx-auto max-w-7xl">
-
-        <div class="reveal mb-14">
-
-          <p class="font-mono text-xs uppercase tracking-[0.2em] text-cyan-400">
-            01 / Profile
-          </p>
-
-          <h2 class="mt-3 max-w-3xl text-4xl font-bold tracking-tight sm:text-5xl">
-            Building technology foundations that
-            <span class="text-cyan-400">businesses can trust.</span>
-          </h2>
-
-        </div>
-
-
-        <div class="grid gap-10 lg:grid-cols-[1.2fr_0.8fr]">
-
-          <!-- Profile -->
-          <div class="reveal">
-
-            <div class="rounded-2xl border border-white/[0.07] bg-slate-900/40 p-7 sm:p-8">
-
-              <div class="flex items-center gap-3">
-                <div
-                  class="flex h-10 w-10 items-center justify-center rounded-lg bg-cyan-400/10 text-cyan-400"
-                >
-                  <i data-lucide="user-cog" class="h-5 w-5"></i>
-                </div>
-
-                <div>
-                  <div class="text-sm font-semibold text-white">
-                    Professional Profile
-                  </div>
-
-                  <div class="font-mono text-[10px] uppercase tracking-widest text-slate-600">
-                    infrastructure.engineer
-                  </div>
-                </div>
-              </div>
-
-
-              <p class="mt-7 text-lg leading-8 text-slate-300">
-                I am a highly motivated and results-oriented Senior IT Engineer
-                with 8 years of experience in designing, implementing and
-                maintaining complex IT infrastructure across both on-premises
-                and cloud environments.
-              </p>
-
-              <p class="mt-5 leading-7 text-slate-500">
-                My experience spans cloud architecture and design, AWS and Azure
-                infrastructure, cloud migration, DevOps engineering, CI/CD,
-                identity and access management, networking and enterprise IT
-                operations.
-              </p>
-
-              <p class="mt-5 leading-7 text-slate-500">
-                I enjoy translating business requirements into practical
-                technical solutions while maintaining a strong focus on
-                reliability, security, performance and operational excellence.
-              </p>
-
-              <p class="mt-5 leading-7 text-slate-500">
-                I also bring an ITIL and Agile mindset to infrastructure
-                engineering, helping teams balance technical outcomes with
-                service quality and business priorities.
-              </p>
-
-            </div>
-
-          </div>
-
-
-          <!-- Core strengths -->
-          <div class="reveal">
-
-            <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
-
-              <div class="hover-card rounded-xl border border-white/[0.07] bg-slate-900/40 p-5">
-
-                <div class="flex gap-4">
-
-                  <div class="text-cyan-400">
-                    <i data-lucide="cloud-cog" class="h-5 w-5"></i>
-                  </div>
-
-                  <div>
-                    <h3 class="font-semibold">
-                      Cloud Architecture
-                    </h3>
-
-                    <p class="mt-1 text-sm leading-6 text-slate-500">
-                      Designing scalable, resilient and secure cloud
-                      infrastructure.
-                    </p>
-                  </div>
-
-                </div>
-
-              </div>
-
-
-              <div class="hover-card rounded-xl border border-white/[0.07] bg-slate-900/40 p-5">
-
-                <div class="flex gap-4">
-
-                  <div class="text-cyan-400">
-                    <i data-lucide="workflow" class="h-5 w-5"></i>
-                  </div>
-
-                  <div>
-                    <h3 class="font-semibold">
-                      DevOps & Automation
-                    </h3>
-
-                    <p class="mt-1 text-sm leading-6 text-slate-500">
-                      CI/CD, infrastructure automation and repeatable
-                      engineering practices.
-                    </p>
-                  </div>
-
-                </div>
-
-              </div>
-
-
-              <div class="hover-card rounded-xl border border-white/[0.07] bg-slate-900/40 p-5">
-
-                <div class="flex gap-4">
-
-                  <div class="text-cyan-400">
-                    <i data-lucide="arrow-right-left" class="h-5 w-5"></i>
-                  </div>
-
-                  <div>
-                    <h3 class="font-semibold">
-                      Cloud Migration
-                    </h3>
-
-                    <p class="mt-1 text-sm leading-6 text-slate-500">
-                      Supporting migration from traditional infrastructure
-                      into cloud environments.
-                    </p>
-                  </div>
-
-                </div>
-
-              </div>
-
-
-              <div class="hover-card rounded-xl border border-white/[0.07] bg-slate-900/40 p-5">
-
-                <div class="flex gap-4">
-
-                  <div class="text-cyan-400">
-                    <i data-lucide="shield-check" class="h-5 w-5"></i>
-                  </div>
-
-                  <div>
-                    <h3 class="font-semibold">
-                      Security & IAM
-                    </h3>
-
-                    <p class="mt-1 text-sm leading-6 text-slate-500">
-                      Identity, access controls and infrastructure security
-                      practices.
-                    </p>
-                  </div>
-
-                </div>
-
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-
-    <!-- =========================================================
-         EXPERTISE
-    ========================================================== -->
-    <section
-      id="expertise"
-      class="border-t border-white/[0.06] bg-slate-950/40 px-5 py-24 lg:px-8"
-    >
-
-      <div class="mx-auto max-w-7xl">
-
-        <div class="reveal mb-14">
-
-          <p class="font-mono text-xs uppercase tracking-[0.2em] text-cyan-400">
-            02 / Expertise
-          </p>
-
-          <h2 class="mt-3 text-4xl font-bold tracking-tight sm:text-5xl">
-            Technical
-            <span class="text-cyan-400">capabilities.</span>
-          </h2>
-
-        </div>
-
-
-        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-
-          <!-- Skill -->
-          <article class="hover-card reveal rounded-2xl border border-white/[0.07] bg-[#0D131D] p-6">
-
-            <div class="flex items-start justify-between">
-
-              <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-cyan-400/10 text-cyan-400">
-                <i data-lucide="cloud" class="h-5 w-5"></i>
-              </span>
-
-              <span class="font-mono text-xs text-slate-700">
-                01
-              </span>
-
-            </div>
-
-            <h3 class="mt-6 text-lg font-semibold">
-              Cloud Architecture & Design
-            </h3>
-
-            <p class="mt-3 text-sm leading-6 text-slate-500">
-              Designing reliable, scalable and secure cloud infrastructure
-              aligned with business and operational requirements.
-            </p>
-
-            <div class="mt-5 flex flex-wrap gap-2">
-              <span class="tech-badge">AWS</span>
-              <span class="tech-badge">Azure</span>
-              <span class="tech-badge">Architecture</span>
-            </div>
-
-          </article>
-
-
-          <!-- Skill -->
-          <article class="hover-card reveal rounded-2xl border border-white/[0.07] bg-[#0D131D] p-6">
-
-            <div class="flex items-start justify-between">
-
-              <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-cyan-400/10 text-cyan-400">
-                <i data-lucide="server-cog" class="h-5 w-5"></i>
-              </span>
-
-              <span class="font-mono text-xs text-slate-700">
-                02
-              </span>
-
-            </div>
-
-            <h3 class="mt-6 text-lg font-semibold">
-              AWS & Azure Infrastructure
-            </h3>
-
-            <p class="mt-3 text-sm leading-6 text-slate-500">
-              Cloud infrastructure services, enterprise environments,
-              operations and platform management.
-            </p>
-
-            <div class="mt-5 flex flex-wrap gap-2">
-              <span class="tech-badge">AWS</span>
-              <span class="tech-badge">Azure</span>
-              <span class="tech-badge">Networking</span>
-            </div>
-
-          </article>
-
-
-          <!-- Skill -->
-          <article class="hover-card reveal rounded-2xl border border-white/[0.07] bg-[#0D131D] p-6">
-
-            <div class="flex items-start justify-between">
-
-              <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-cyan-400/10 text-cyan-400">
-                <i data-lucide="git-merge" class="h-5 w-5"></i>
-              </span>
-
-              <span class="font-mono text-xs text-slate-700">
-                03
-              </span>
-
-            </div>
-
-            <h3 class="mt-6 text-lg font-semibold">
-              DevOps Engineering
-            </h3>
-
-            <p class="mt-3 text-sm leading-6 text-slate-500">
-              Improving delivery through automation, CI/CD, version control
-              and engineering best practices.
-            </p>
-
-            <div class="mt-5 flex flex-wrap gap-2">
-              <span class="tech-badge">CI/CD</span>
-              <span class="tech-badge">Git</span>
-              <span class="tech-badge">Automation</span>
-            </div>
-
-          </article>
-
-
-          <!-- Skill -->
-          <article class="hover-card reveal rounded-2xl border border-white/[0.07] bg-[#0D131D] p-6">
-
-            <div class="flex items-start justify-between">
-
-              <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-cyan-400/10 text-cyan-400">
-                <i data-lucide="arrow-right-left" class="h-5 w-5"></i>
-              </span>
-
-              <span class="font-mono text-xs text-slate-700">
-                04
-              </span>
-
-            </div>
-
-            <h3 class="mt-6 text-lg font-semibold">
-              Cloud Migrations
-            </h3>
-
-            <p class="mt-3 text-sm leading-6 text-slate-500">
-              Supporting infrastructure transformation and migration from
-              on-premises platforms to cloud.
-            </p>
-
-          </article>
-
-
-          <!-- Skill -->
-          <article class="hover-card reveal rounded-2xl border border-white/[0.07] bg-[#0D131D] p-6">
-
-            <div class="flex items-start justify-between">
-
-              <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-cyan-400/10 text-cyan-400">
-                <i data-lucide="key-round" class="h-5 w-5"></i>
-              </span>
-
-              <span class="font-mono text-xs text-slate-700">
-                05
-              </span>
-
-            </div>
-
-            <h3 class="mt-6 text-lg font-semibold">
-              Identity & Access Management
-            </h3>
-
-            <p class="mt-3 text-sm leading-6 text-slate-500">
-              Applying identity, authentication, authorisation and access
-              management principles.
-            </p>
-
-          </article>
-
-
-          <!-- Skill -->
-          <article class="hover-card reveal rounded-2xl border border-white/[0.07] bg-[#0D131D] p-6">
-
-            <div class="flex items-start justify-between">
-
-              <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-cyan-400/10 text-cyan-400">
-                <i data-lucide="settings-2" class="h-5 w-5"></i>
-              </span>
-
-              <span class="font-mono text-xs text-slate-700">
-                06
-              </span>
-
-            </div>
-
-            <h3 class="mt-6 text-lg font-semibold">
-              IT Operations & ITIL
-            </h3>
-
-            <p class="mt-3 text-sm leading-6 text-slate-500">
-              Applying ITIL principles to service operations, incidents,
-              changes, problems and infrastructure support.
-            </p>
-
-          </article>
-
-        </div>
-
-
-        <!-- Technology strip -->
-        <div class="reveal mt-10 rounded-2xl border border-white/[0.07] bg-[#0D131D] p-6">
-
-          <div class="mb-5 flex items-center gap-3">
-
-            <i data-lucide="layers-3" class="h-5 w-5 text-cyan-400"></i>
-
-            <span class="text-sm font-semibold">
-              Technology Landscape
-            </span>
-
-          </div>
-
-          <div class="flex flex-wrap gap-2">
-
-            <span class="tech-pill">AWS</span>
-            <span class="tech-pill">Microsoft Azure</span>
-            <span class="tech-pill">Google Cloud</span>
-            <span class="tech-pill">Oracle Cloud</span>
-            <span class="tech-pill">DevOps</span>
-            <span class="tech-pill">CI/CD</span>
-            <span class="tech-pill">Git</span>
-            <span class="tech-pill">Networking</span>
-            <span class="tech-pill">IAM</span>
-            <span class="tech-pill">On-Prem Infrastructure</span>
-            <span class="tech-pill">ITIL</span>
-            <span class="tech-pill">Agile</span>
-
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-
-    <!-- =========================================================
-         EXPERIENCE
-    ========================================================== -->
-    <section id="experience" class="border-t border-white/[0.06] px-5 py-24 lg:px-8">
-
-      <div class="mx-auto max-w-5xl">
-
-        <div class="reveal mb-14">
-
-          <p class="font-mono text-xs uppercase tracking-[0.2em] text-cyan-400">
-            03 / Experience
-          </p>
-
-          <h2 class="mt-3 text-4xl font-bold tracking-tight sm:text-5xl">
-            Professional
-            <span class="text-cyan-400">journey.</span>
-          </h2>
-
-        </div>
-
-
-        <div class="relative">
-
-          <!-- Timeline line -->
-          <div
-            class="timeline-line absolute left-[7px] top-2 h-[calc(100%-1rem)] w-px md:left-[159px]"
-            aria-hidden="true"
-          ></div>
-
-
-          <!-- Experience -->
-          <article class="reveal relative pb-14 md:grid md:grid-cols-[135px_1fr] md:gap-8">
-
-            <div
-              class="absolute left-0 top-1.5 h-4 w-4 rounded-full border-4 border-[#080B12] bg-cyan-400 md:left-[152px]"
-            ></div>
-
-            <div class="pl-10 md:pl-0">
-              <p class="font-mono text-xs text-cyan-400">
-                CURRENT
-              </p>
-
-              <p class="mt-1 text-sm text-slate-600">
-                Senior Level
-              </p>
-            </div>
-
-            <div class="mt-6 pl-10 md:mt-0">
-
-              <h3 class="text-xl font-semibold text-white">
-                Senior IT / Infrastructure Engineer
-              </h3>
-
-              <p class="mt-1 text-sm text-slate-500">
-                Infrastructure • Cloud • DevOps
-              </p>
-
-              <div class="mt-5 grid gap-3 sm:grid-cols-2">
-
-                <div class="rounded-lg border border-white/5 bg-white/[0.015] p-4">
-                  <div class="mb-2 flex items-center gap-2 text-cyan-400">
-                    <i data-lucide="cloud-cog" class="h-4 w-4"></i>
-                    <span class="text-xs font-medium">Cloud</span>
-                  </div>
-
-                  <p class="text-sm leading-6 text-slate-500">
-                    Designed and supported enterprise infrastructure across
-                    on-premises and cloud environments.
-                  </p>
-                </div>
-
-
-                <div class="rounded-lg border border-white/5 bg-white/[0.015] p-4">
-                  <div class="mb-2 flex items-center gap-2 text-cyan-400">
-                    <i data-lucide="workflow" class="h-4 w-4"></i>
-                    <span class="text-xs font-medium">Engineering</span>
-                  </div>
-
-                  <p class="text-sm leading-6 text-slate-500">
-                    Collaborated with cross-functional teams to translate
-                    business requirements into technical solutions.
-                  </p>
-                </div>
-
-              </div>
-
-            </div>
-
-          </article>
-
-
-          <!-- Career development -->
-          <article class="reveal relative pb-14 md:grid md:grid-cols-[135px_1fr] md:gap-8">
-
-            <div
-              class="absolute left-0 top-1.5 h-4 w-4 rounded-full border-4 border-[#080B12] bg-slate-600 md:left-[152px]"
-            ></div>
-
-            <div class="pl-10 md:pl-0">
-              <p class="font-mono text-xs text-slate-500">
-                PREVIOUS
-              </p>
-
-              <p class="mt-1 text-sm text-slate-600">
-                Infrastructure
-              </p>
-            </div>
-
-            <div class="mt-6 pl-10 md:mt-0">
-
-              <h3 class="text-xl font-semibold text-white">
-                IT Infrastructure Engineer
-              </h3>
-
-              <p class="mt-1 text-sm text-slate-500">
-                Infrastructure Operations • Support • Projects
-              </p>
-
-              <div class="mt-5 grid gap-3 sm:grid-cols-2">
-
-                <div class="rounded-lg border border-white/5 bg-white/[0.015] p-4">
-                  <p class="text-sm leading-6 text-slate-500">
-                    Supported infrastructure operations, networking and
-                    enterprise systems in production environments.
-                  </p>
-                </div>
-
-                <div class="rounded-lg border border-white/5 bg-white/[0.015] p-4">
-                  <p class="text-sm leading-6 text-slate-500">
-                    Participated in technology projects, service improvement
-                    initiatives and infrastructure transformation.
-                  </p>
-                </div>
-
-              </div>
-
-            </div>
-
-          </article>
-
-
-          <!-- Foundation -->
-          <article class="reveal relative md:grid md:grid-cols-[135px_1fr] md:gap-8">
-
-            <div
-              class="absolute left-0 top-1.5 h-4 w-4 rounded-full border-4 border-[#080B12] bg-slate-700 md:left-[152px]"
-            ></div>
-
-            <div class="pl-10 md:pl-0">
-              <p class="font-mono text-xs text-slate-600">
-                FOUNDATION
-              </p>
-
-              <p class="mt-1 text-sm text-slate-600">
-                IT Operations
-              </p>
-            </div>
-
-            <div class="mt-6 pl-10 md:mt-0">
-
-              <h3 class="text-xl font-semibold text-white">
-                Infrastructure & Systems
-              </h3>
-
-              <p class="mt-1 text-sm text-slate-500">
-                Building fundamentals across enterprise IT.
-              </p>
-
-            </div>
-
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-
-    <!-- =========================================================
-         CERTIFICATIONS
-    ========================================================== -->
-    <section
-      id="certifications"
-      class="border-t border-white/[0.06] bg-slate-950/40 px-5 py-24 lg:px-8"
-    >
-
-      <div class="mx-auto max-w-7xl">
-
-        <div class="reveal mb-14">
-
-          <p class="font-mono text-xs uppercase tracking-[0.2em] text-cyan-400">
-            04 / Certifications
-          </p>
-
-          <h2 class="mt-3 text-4xl font-bold tracking-tight sm:text-5xl">
-            Continuous
-            <span class="text-cyan-400">learning.</span>
-          </h2>
-
-          <p class="mt-5 max-w-2xl leading-7 text-slate-500">
-            Professional certifications reflecting ongoing investment in cloud,
-            infrastructure, service management, observability and modern
-            delivery practices.
-          </p>
-
-        </div>
-
-
-        <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-
-          <!-- Certification -->
-          <article class="hover-card reveal rounded-xl border border-white/[0.07] bg-[#0D131D] p-5">
-
-            <div class="flex items-start justify-between">
-
-              <span class="flex h-10 w-10 items-center justify-center rounded-lg bg-orange-400/10 text-orange-300">
-                <i data-lucide="badge-check" class="h-5 w-5"></i>
-              </span>
-
-              <span class="font-mono text-[10px] text-slate-700">
-                AWS
-              </span>
-
-            </div>
-
-            <h3 class="mt-5 font-semibold">
-              AWS Certified Solutions Architect
-            </h3>
-
-            <p class="mt-2 text-xs text-slate-500">
-              Associate
-            </p>
-
-          </article>
-
-
-          <!-- Certification -->
-          <article class="hover-card reveal rounded-xl border border-white/[0.07] bg-[#0D131D] p-5">
-
-            <div class="flex items-start justify-between">
-
-              <span class="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-400/10 text-blue-300">
-                <i data-lucide="cloud-cog" class="h-5 w-5"></i>
-              </span>
-
-              <span class="font-mono text-[10px] text-slate-700">
-                AZ-900
-              </span>
-
-            </div>
-
-            <h3 class="mt-5 font-semibold">
-              Microsoft Azure Fundamentals
-            </h3>
-
-            <p class="mt-2 text-xs text-slate-500">
-              Microsoft
-            </p>
-
-          </article>
-
-
-          <!-- Certification -->
-          <article class="hover-card reveal rounded-xl border border-white/[0.07] bg-[#0D131D] p-5">
-
-            <div class="flex items-start justify-between">
-
-              <span class="flex h-10 w-10 items-center justify-center rounded-lg bg-purple-400/10 text-purple-300">
-                <i data-lucide="brain-circuit" class="h-5 w-5"></i>
-              </span>
-
-              <span class="font-mono text-[10px] text-slate-700">
-                AI-900
-              </span>
-
-            </div>
-
-            <h3 class="mt-5 font-semibold">
-              Azure AI Fundamentals
-            </h3>
-
-            <p class="mt-2 text-xs text-slate-500">
-              Microsoft
-            </p>
-
-          </article>
-
-
-          <!-- Certification -->
-          <article class="hover-card reveal rounded-xl border border-white/[0.07] bg-[#0D131D] p-5">
-
-            <div class="flex items-start justify-between">
-
-              <span class="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-400/10 text-blue-300">
-                <i data-lucide="cloud" class="h-5 w-5"></i>
-              </span>
-
-              <span class="font-mono text-[10px] text-slate-700">
-                GCP
-              </span>
-
-            </div>
-
-            <h3 class="mt-5 font-semibold">
-              Cloud Digital Leader
-            </h3>
-
-            <p class="mt-2 text-xs text-slate-500">
-              Google Cloud
-            </p>
-
-          </article>
-
-
-          <!-- OCI -->
-          <article class="hover-card reveal rounded-xl border border-white/[0.07] bg-[#0D131D] p-5">
-
-            <div class="flex items-start justify-between">
-
-              <span class="flex h-10 w-10 items-center justify-center rounded-lg bg-red-400/10 text-red-300">
-                <i data-lucide="database" class="h-5 w-5"></i>
-              </span>
-
-              <span class="font-mono text-[10px] text-slate-700">
-                OCI
-              </span>
-
-            </div>
-
-            <h3 class="mt-5 font-semibold">
-              OCI Foundations Associate
-            </h3>
-
-            <p class="mt-2 text-xs text-slate-500">
-              Oracle Cloud Infrastructure
-            </p>
-
-          </article>
-
-
-          <!-- Splunk -->
-          <article class="hover-card reveal rounded-xl border border-white/[0.07] bg-[#0D131D] p-5">
-
-            <div class="flex items-start justify-between">
-
-              <span class="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-400/10 text-emerald-300">
-                <i data-lucide="activity" class="h-5 w-5"></i>
-              </span>
-
-              <span class="font-mono text-[10px] text-slate-700">
-                O11Y
-              </span>
-
-            </div>
-
-            <h3 class="mt-5 font-semibold">
-              Splunk O11y Cloud
-            </h3>
-
-            <p class="mt-2 text-xs text-slate-500">
-              Certified Metrics User
-            </p>
-
-          </article>
-
-
-          <!-- Agile -->
-          <article class="hover-card reveal rounded-xl border border-white/[0.07] bg-[#0D131D] p-5">
-
-            <div class="flex items-start justify-between">
-
-              <span class="flex h-10 w-10 items-center justify-center rounded-lg bg-amber-400/10 text-amber-300">
-                <i data-lucide="users" class="h-5 w-5"></i>
-              </span>
-
-              <span class="font-mono text-[10px] text-slate-700">
-                IC Agile
-              </span>
-
-            </div>
-
-            <h3 class="mt-5 font-semibold">
-              ICAgile Certified Professional
-            </h3>
-
-            <p class="mt-2 text-xs text-slate-500">
-              Agile methodology
-            </p>
-
-          </article>
-
-
-          <!-- ITIL -->
-          <article class="hover-card reveal rounded-xl border border-white/[0.07] bg-[#0D131D] p-5">
-
-            <div class="flex items-start justify-between">
-
-              <span class="flex h-10 w-10 items-center justify-center rounded-lg bg-cyan-400/10 text-cyan-300">
-                <i data-lucide="clipboard-check" class="h-5 w-5"></i>
-              </span>
-
-              <span class="font-mono text-[10px] text-slate-700">
-                ITIL
-              </span>
-
-            </div>
-
-            <h3 class="mt-5 font-semibold">
-              ITIL v4 Foundation
-            </h3>
-
-            <p class="mt-2 text-xs text-slate-500">
-              Service management
-            </p>
-
-          </article>
-
-        </div>
-
-      </div>
-    </section>
-
-
-    <!-- =========================================================
-         CONTACT
-    ========================================================== -->
-    <section id="contact" class="border-t border-white/[0.06] px-5 py-24 lg:px-8">
-
-      <div class="mx-auto max-w-7xl">
-
-        <div class="grid gap-14 lg:grid-cols-[0.85fr_1.15fr] lg:gap-24">
-
-          <!-- Intro -->
-          <div class="reveal">
-
-            <p class="font-mono text-xs uppercase tracking-[0.2em] text-cyan-400">
-              05 / Contact
-            </p>
-
-            <h2 class="mt-4 text-4xl font-bold tracking-tight sm:text-5xl">
-              Let's talk
-              <span class="text-cyan-400">technology.</span>
-            </h2>
-
-            <p class="mt-6 max-w-md leading-7 text-slate-500">
-              Interested in infrastructure engineering, cloud transformation,
-              DevOps or technology opportunities? Feel free to get in touch.
-            </p>
-
-
-            <div class="mt-8 space-y-4">
-
-              <a
-                href="mailto:your.email@example.com"
-                class="group flex items-center gap-3 text-sm text-slate-400 transition hover:text-white"
-              >
-
-                <span
-                  class="flex h-10 w-10 items-center justify-center rounded-lg border border-white/[0.07] bg-slate-900"
-                >
-                  <i data-lucide="mail" class="h-4 w-4 text-cyan-400"></i>
-                </span>
-
-                your.email@example.com
-
-              </a>
-
-
-              <div class="flex items-center gap-3">
-
-                <a
-                  href="#"
-                  aria-label="LinkedIn"
-                  class="flex h-10 w-10 items-center justify-center rounded-lg border border-white/[0.07] bg-slate-900 text-slate-400 transition hover:border-cyan-400/30 hover:text-cyan-400"
-                >
-                  <i data-lucide="linkedin" class="h-4 w-4"></i>
-                </a>
-
-                <a
-                  href="#"
-                  aria-label="GitHub"
-                  class="flex h-10 w-10 items-center justify-center rounded-lg border border-white/[0.07] bg-slate-900 text-slate-400 transition hover:border-cyan-400/30 hover:text-cyan-400"
-                >
-                  <i data-lucide="github" class="h-4 w-4"></i>
-                </a>
-
-                <a
-                  href="#"
-                  aria-label="X"
-                  class="flex h-10 w-10 items-center justify-center rounded-lg border border-white/[0.07] bg-slate-900 text-slate-400 transition hover:border-cyan-400/30 hover:text-cyan-400"
-                >
-                  <i data-lucide="twitter" class="h-4 w-4"></i>
-                </a>
-
-              </div>
-
-            </div>
-
-          </div>
-
-
-          <!-- Form -->
-          <div class="reveal">
-
-            <form
-              id="contactForm"
-              class="rounded-2xl border border-white/[0.07] bg-[#0D131D] p-6 sm:p-8"
-            >
-
-              <div class="grid gap-6 sm:grid-cols-2">
-
-                <div>
-
-                  <label
-                    for="name"
-                    class="mb-2 block text-sm font-medium text-slate-300"
-                  >
-                    Name
-                  </label>
-
-                  <input
-                    id="name"
-                    name="name"
-                    type="text"
-                    required
-                    autocomplete="name"
-                    placeholder="Your name"
-                    class="w-full rounded-lg border border-white/[0.07] bg-[#080B12] px-4 py-3.5 text-sm text-white outline-none placeholder:text-slate-700 transition focus:border-cyan-400/40 focus:ring-2 focus:ring-cyan-400/10"
-                  />
-
-                </div>
-
-
-                <div>
-
-                  <label
-                    for="email"
-                    class="mb-2 block text-sm font-medium text-slate-300"
-                  >
-                    Email
-                  </label>
-
-                  <input
-                    id="email"
-                    name="email"
-                    type="email"
-                    required
-                    autocomplete="email"
-                    placeholder="you@example.com"
-                    class="w-full rounded-lg border border-white/[0.07] bg-[#080B12] px-4 py-3.5 text-sm text-white outline-none placeholder:text-slate-700 transition focus:border-cyan-400/40 focus:ring-2 focus:ring-cyan-400/10"
-                  />
-
-                </div>
-
-              </div>
-
-
-              <div class="mt-6">
-
-                <label
-                  for="message"
-                  class="mb-2 block text-sm font-medium text-slate-300"
-                >
-                  Message
-                </label>
-
-                <textarea
-                  id="message"
-                  name="message"
-                  rows="6"
-                  required
-                  placeholder="Tell me about your project, opportunity or idea..."
-                  class="w-full resize-none rounded-lg border border-white/[0.07] bg-[#080B12] px-4 py-3.5 text-sm text-white outline-none placeholder:text-slate-700 transition focus:border-cyan-400/40 focus:ring-2 focus:ring-cyan-400/10"
-                ></textarea>
-
-              </div>
-
-
-              <button
-                type="submit"
-                class="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-cyan-400 px-6 py-3.5 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300"
-              >
-                Send Message
-                <i data-lucide="send" class="h-4 w-4"></i>
-              </button>
-
-
-              <p
-                id="formMessage"
-                class="mt-4 hidden text-center text-sm text-cyan-300"
-                role="status"
-              ></p>
-
-            </form>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-  </main>
-
-
-  <!-- =========================================================
-       FOOTER
-  ========================================================== -->
-  <footer class="border-t border-white/[0.06] px-5 py-8 lg:px-8">
-
-    <div
-      class="mx-auto flex max-w-7xl flex-col gap-4 text-sm text-slate-600 sm:flex-row sm:items-center sm:justify-between"
-    >
-
-      <div>
-        © <span id="year"></span> Anil Awasthi. All rights reserved.
-      </div>
-
-      <div class="flex items-center gap-5">
-
-        <a href="#about" class="transition hover:text-slate-300">
-          About
-        </a>
-
-        <a href="#expertise" class="transition hover:text-slate-300">
-          Expertise
-        </a>
-
-        <a href="#contact" class="transition hover:text-slate-300">
-          Contact
-        </a>
-
-        <a
-          href="#home"
-          aria-label="Back to top"
-          class="flex h-8 w-8 items-center justify-center rounded-lg border border-white/[0.07] transition hover:border-cyan-400/30 hover:text-cyan-400"
-        >
-          <i data-lucide="arrow-up" class="h-4 w-4"></i>
-        </a>
-
-      </div>
-
     </div>
+  </section>
 
-  </footer>
+  <section class="section" id="expertise">
+    <div class="wrap">
+      <div class="kicker">02 / Expertise</div>
+      <h2>Technical capabilities.</h2>
+      <p class="section-intro">A practical toolkit across monitoring, cloud infrastructure, DevOps and service operations.</p>
+      <div class="grid">
+        <article class="card"><div class="num">OBSERVABILITY</div><h3>Application &amp; infrastructure monitoring</h3><p>APM, Infrastructure Monitoring (IM), Real User Monitoring (RUM), synthetic monitoring, dashboards and alerting.</p><div class="tags"><span class="tag">Splunk O11y</span><span class="tag">APM</span><span class="tag">RUM</span></div></article>
+        <article class="card"><div class="num">OPERATIONS</div><h3>Incident management &amp; troubleshooting</h3><p>Monitoring system health, supporting service operations, investigating issues and contributing to root cause analysis.</p><div class="tags"><span class="tag">Incident Management</span><span class="tag">RCA</span><span class="tag">ITIL</span></div></article>
+        <article class="card"><div class="num">CLOUD</div><h3>Cloud &amp; infrastructure transformation</h3><p>Cloud and data centre operations, migration coordination, capacity planning and infrastructure optimization.</p><div class="tags"><span class="tag">Cloud Migration</span><span class="tag">Infrastructure</span></div></article>
+        <article class="card"><div class="num">DELIVERY</div><h3>DevOps &amp; CI/CD</h3><p>Infrastructure as Code environments, Azure DevOps, Azure Repos/Git, pipelines and automation tooling.</p><div class="tags"><span class="tag">Azure DevOps</span><span class="tag">Git</span><span class="tag">CI/CD</span></div></article>
+        <article class="card"><div class="num">COLLABORATION</div><h3>Cross-functional engineering</h3><p>Coordinating with Cloud, Wintel, VMware, Linux, Data and Security teams during infrastructure change and migration work.</p><div class="tags"><span class="tag">Agile</span><span class="tag">Communication</span></div></article>
+        <article class="card"><div class="num">CLOUD PLATFORMS</div><h3>Multi-cloud foundations</h3><p>Cloud experience and certifications spanning AWS, Microsoft Azure, Google Cloud and Oracle Cloud Infrastructure.</p><div class="tags"><span class="tag">AWS</span><span class="tag">Azure</span><span class="tag">Google Cloud</span><span class="tag">OCI</span></div></article>
+      </div>
+    </div>
+  </section>
 
+  <section class="section" id="experience">
+    <div class="wrap">
+      <div class="kicker">03 / Experience</div>
+      <h2>Professional journey.</h2>
+      <p class="section-intro">Experience across observability engineering and enterprise infrastructure transformation.</p>
+      <div class="timeline">
+        <article class="job">
+          <div><div class="date">FEB 2024 — PRESENT</div><div class="company">Acenda Life (formerly MLC Life)</div></div>
+          <div><h3>Observability Engineer (Splunk O11y)</h3><ul>
+            <li>Set up, configure and maintain monitoring systems to support availability, performance and reliability.</li>
+            <li>Evaluate system performance, identify bottlenecks and improve IT and cloud infrastructure efficiency.</li>
+            <li>Collaborate across teams on cloud capacity planning and scaling requirements.</li>
+            <li>Develop and maintain automation scripts, tools and processes for operational tasks and maintenance.</li>
+            <li>Contribute to continuous improvement of the Splunk Observability platform.</li>
+          </ul></div>
+        </article>
+        <article class="job">
+          <div><div class="date">JUN 2018 — NOV 2023</div><div class="company">Accenture Australia</div></div>
+          <div><h3>IT Infrastructure Transformation Senior Analyst</h3><ul>
+            <li>Supported cloud and data centre service operations, including event, service request, incident and problem management.</li>
+            <li>Coordinated cloud migration and site-separation activities across Cloud, Wintel, VMware, Linux, Data and Security teams.</li>
+            <li>Administered Infrastructure as Code and DevOps environments and built custom monitoring apps, dashboards and alerts.</li>
+            <li>Designed an API Management integration solution using Azure DevOps, Azure Repos/Git, Azure Pipelines and CI/CD tools.</li>
+            <li>Designed a multi-cloud orchestration solution integrating with existing automation and Infrastructure as Code tools.</li>
+            <li>Supported risk mitigation and cloud workload financial management optimization.</li>
+          </ul></div>
+        </article>
+      </div>
+    </div>
+  </section>
 
-  <!-- =========================================================
-       JAVASCRIPT
-  ========================================================== -->
-  <script>
+  <section class="section" id="certifications">
+    <div class="wrap">
+      <div class="kicker">04 / Credentials</div>
+      <h2>Certifications &amp; education.</h2>
+      <p class="section-intro">Professional certifications and formal study spanning observability, cloud platforms and agile delivery.</p>
+      <div class="certs">
+        <div class="cert"><div class="cert-mark">SPL</div><div><strong>Splunk O11y Cloud Certified Metrics User</strong><small>Splunk Observability</small></div></div>
+        <div class="cert"><div class="cert-mark">SPL</div><div><strong>Splunk Core Certified User and Power User</strong><small>Splunk</small></div></div>
+        <div class="cert"><div class="cert-mark">AWS</div><div><strong>AWS Certified Solutions Architect – Associate</strong><small>Amazon Web Services</small></div></div>
+        <div class="cert"><div class="cert-mark">AZ</div><div><strong>Microsoft Azure Fundamentals (AZ-900)</strong><small>Microsoft</small></div></div>
+        <div class="cert"><div class="cert-mark">AI</div><div><strong>Microsoft Azure AI Fundamentals (AI-900)</strong><small>Microsoft</small></div></div>
+        <div class="cert"><div class="cert-mark">GCP</div><div><strong>Cloud Digital Leader</strong><small>Google Cloud</small></div></div>
+        <div class="cert"><div class="cert-mark">OCI</div><div><strong>Oracle Cloud Infrastructure Foundations Associate</strong><small>Oracle Cloud Infrastructure</small></div></div>
+        <div class="cert"><div class="cert-mark">AGL</div><div><strong>ICAgile Certified Professional</strong><small>Agile methodology</small></div></div>
+      </div>
+      <div class="education" style="margin-top:22px">
+        <article class="card"><div class="num">MASTER'S DEGREE</div><h3>Information and Communication Technology</h3><p>La Trobe University, Australia</p></article>
+        <article class="card"><div class="num">BACHELOR'S DEGREE</div><h3>Electronics and Communication Engineering</h3><p>Tribhuvan University, Nepal</p></article>
+      </div>
+    </div>
+  </section>
 
-    // ---------------------------------------------------------
-    // Initialize Lucide
-    // ---------------------------------------------------------
-    lucide.createIcons();
-
-
-    // ---------------------------------------------------------
-    // Mobile navigation
-    // ---------------------------------------------------------
-    const menuButton = document.getElementById("menuButton");
-    const mobileMenu = document.getElementById("mobileMenu");
-    const mobileLinks = document.querySelectorAll(".mobile-link");
-
-    menuButton.addEventListener("click", () => {
-
-      const isOpen = mobileMenu.classList.toggle("open");
-
-      menuButton.setAttribute(
-        "aria-expanded",
-        String(isOpen)
-      );
-
-      menuButton.innerHTML = isOpen
-        ? '<i data-lucide="x" class="h-5 w-5"></i>'
-        : '<i data-lucide="menu" class="h-5 w-5"></i>';
-
-      lucide.createIcons();
-
-    });
-
-
-    // Close mobile menu after click
-    mobileLinks.forEach((link) => {
-
-      link.addEventListener("click", () => {
-
-        mobileMenu.classList.remove("open");
-
-        menuButton.setAttribute(
-          "aria-expanded",
-          "false"
-        );
-
-        menuButton.innerHTML =
-          '<i data-lucide="menu" class="h-5 w-5"></i>';
-
-        lucide.createIcons();
-
-      });
-
-    });
-
-
-    // ---------------------------------------------------------
-    // Scroll reveal animation
-    // ---------------------------------------------------------
-    const revealElements =
-      document.querySelectorAll(".reveal");
-
-    const revealObserver =
-      new IntersectionObserver(
-        (entries, observer) => {
-
-          entries.forEach((entry) => {
-
-            if (entry.isIntersecting) {
-
-              entry.target.classList.add("visible");
-
-              observer.unobserve(entry.target);
-
-            }
-
-          });
-
-        },
-        {
-          threshold: 0.12
-        }
-      );
-
-
-    revealElements.forEach((element) => {
-      revealObserver.observe(element);
-    });
-
-
-    // ---------------------------------------------------------
-    // Form demo
-    // ---------------------------------------------------------
-    const contactForm =
-      document.getElementById("contactForm");
-
-    const formMessage =
-      document.getElementById("formMessage");
-
-
-    contactForm.addEventListener(
-      "submit",
-      (event) => {
-
-        event.preventDefault();
-
-        formMessage.textContent =
-          "Thank you. Your message has been received.";
-
-        formMessage.classList.remove("hidden");
-
-        contactForm.reset();
-
-      }
-    );
-
-
-    // ---------------------------------------------------------
-    // Current year
-    // ---------------------------------------------------------
-    document.getElementById("year").textContent =
-      new Date().getFullYear();
-
-
-    // ---------------------------------------------------------
-    // Reusable technology pill styling
-    // ---------------------------------------------------------
-    document.querySelectorAll(".tech-badge").forEach((badge) => {
-
-      badge.className =
-        "rounded-md border border-white/5 bg-white/[0.03] px-2.5 py-1 text-[10px] font-mono text-slate-500";
-
-    });
-
-
-    document.querySelectorAll(".tech-pill").forEach((pill) => {
-
-      pill.className =
-        "rounded-md border border-white/5 bg-white/[0.02] px-3 py-2 text-xs font-mono text-slate-500 transition hover:border-cyan-400/20 hover:text-cyan-300";
-
-    });
-
-  </script>
-
+  <section class="section" id="contact">
+    <div class="wrap">
+      <div class="contact">
+        <div><div class="kicker">05 / Contact</div><h2>Let's talk technology.</h2><p>For professional opportunities and conversations about observability, monitoring, cloud infrastructure or DevOps, get in touch.</p></div>
+        <div class="actions"><a class="btn primary" href="mailto:anil.augrad@gmail.com" aria-label="Email anil.augrad@gmail.com">Email me ↗</a><a class="btn" href="https://www.linkedin.com/in/anil-awasthi-58966160/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer><div class="wrap foot"><span>© <span id="year">2026</span> Anil Awasthi</span><span>Observability · Monitoring · Cloud Infrastructure</span><a href="#home">Back to top ↑</a></div></footer>
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
 </body>
 </html>
